@@ -1,0 +1,13 @@
+{
+  "name": "ktanggre/328/application",
+  "description": "My MVC application",
+  "authors": [
+    {
+      "name": "Kasyn Tang",
+      "email": "ktang520@gmail.com"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
