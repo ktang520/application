@@ -9,6 +9,7 @@ header {
 .btn-primary {
     background-color: #91c644;
     border: none;
+    border-radius: 30px;
 }
 
 
@@ -21,4 +22,12 @@ section {
     background-color: white;
     padding: 20px;
     border-radius: 15px;
+}
+
+.quote {
+    font-style: italic;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
 }
