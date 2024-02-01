@@ -22,6 +22,7 @@ header {
 h1 {
     border-bottom: 2px solid #ccc;
     padding-bottom: 5px;
+    text-align: center;
 }
 
 section {
