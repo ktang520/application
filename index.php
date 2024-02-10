@@ -25,7 +25,28 @@ $f3->route('GET /', function () {
 });
 
 // Define a personal information route
-$f3->route('GET /info', function () {
+$f3->route('GET|POST /info', function ($f3) {
+
+    // If the form has been posted
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        // Validate the data
+        $first = $_POST['first'];
+        $last = $_POST['last'];
+        $email = $_POST['email'];
+        $state = $_POST['state'];
+        $phone = $_POST['phone'];
+
+        // Put the data in the session array
+        $f3->set('SESSION.first', $first);
+        $f3->set('SESSION.last', $last);
+        $f3->set('SESSION.email', $email);
+        $f3->set('SESSION.state', $state);
+        $f3->set('SESSION.phone', $phone);
+
+        // Redirect to experience route
+        $f3->reroute('experience');
+    }
 
     // display a view page
     $view = new Template();
@@ -33,7 +54,26 @@ $f3->route('GET /info', function () {
 });
 
 // Define a experience route
-$f3->route('GET /experience', function () {
+$f3->route('GET|POST /experience', function ($f3) {
+
+    // If the form has been posted
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        // Validate the data
+        $bio = $_POST['bio'];
+        $github = $_POST['github'];
+        $years = $_POST['years'];
+        $relocate = $_POST['relocate'];
+
+        // Put the data in the session array
+        $f3->set('SESSION.bio', $bio);
+        $f3->set('SESSION.github', $github);
+        $f3->set('SESSION.years', $years);
+        $f3->set('SESSION.relocate', $relocate);
+
+        // Redirect to job opening route
+        $f3->reroute('opening');
+    }
 
     // display a view page
     $view = new Template();

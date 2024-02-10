@@ -15,8 +15,8 @@ h1 {
     border: none;
     border-radius: 4px;
     float: right;
-    margin-top: -53px;
-    padding: .375rem 9.75rem;
+    padding-left: 144px;
+    padding-right: 144px;
 }
 .btn-primary:hover {
     background-color: #0cf316;
@@ -25,11 +25,8 @@ h1 {
 .note {
     font-size: 1rem;
     color: #6c757d;
-    padding: 25px 12px 25px 12px;
-    float: right;
-    margin-top: -241px;
-    margin-right: 2px;
-    margin-bottom: 16px;
+    padding: 25px 22px 26px;
+    margin: -225px -758px 0px 711px;
     background: #dedfe2;
 }
 

@@ -6,7 +6,6 @@
     <title>Internship Application Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/experience_styles.css">
-    <link rel="stylesheet" href="styles/info_styles.css">
 </head>
 <body>
     <div class="form-header">
@@ -15,44 +14,35 @@
         <p class="container">Seattle Washington, Paid, 12 weeks</p>
     </div>
     <div class="container">
-        <div class="row">
-         <form>
-
-            <h2>Experience</h2>
+            <form action="#" method="post" class="row">
+                <h2 class="col-md-12">Experience</h2>
             <div class="col-md-8">
                 <label for="biography">Biography</label>
-                <textarea class="form-control" id="biography" rows="7">Lorem ipsum dolor sit amet...</textarea>
+                <textarea class="form-control" name="bio" id="biography" rows="9">Lorem ipsum dolor sit amet...</textarea>
             </div>
 
             <div class="col-md-4">
-                <div class="form-group">
                     <label for="githubLink">GitHub Link</label>
-                    <input type="url" class="form-control" id="githubLink" placeholder="github.com/my-github">
-                </div>
+                    <input type="url" name="github" class="form-control" id="githubLink" placeholder="github.com/my-github">
 
-                <div class="form-group">
                     <label>Years Experience</label>
                     <div>
-                        <label class="radio-inline"><input type="radio" name="yearsExperience" checked> 0-2 </label>
-                        <label class="radio-inline"><input type="radio" name="yearsExperience"> 2-4 </label>
-                        <label class="radio-inline"><input type="radio" name="yearsExperience"> 4+ </label>
+                        <label class="radio-inline"><input type="radio" name="years" value="0-2"> 0-2 </label>
+                        <label class="radio-inline"><input type="radio" name="years" value="2-4"> 2-4 </label>
+                        <label class="radio-inline"><input type="radio" name="years" value="4+"> 4+ </label>
                     </div>
-                </div>
 
-                <div class="form-group">
                     <label>Willing to Relocate</label>
                     <div>
-                        <label class="radio-inline"><input type="radio" name="relocate" checked> Yes </label>
-                        <label class="radio-inline"><input type="radio" name="relocate"> No </label>
-                        <label class="radio-inline"><input type="radio" name="relocate"> Maybe </label>
+                        <label class="radio-inline"><input type="radio" name="relocate" value="yes"> Yes </label>
+                        <label class="radio-inline"><input type="radio" name="relocate" value="no"> No </label>
+                        <label class="radio-inline"><input type="radio" name="relocate" value="maybe"> Maybe </label>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <a href="opening" class="btn btn-primary">Next ></a>
-                </div>
+                  <div>
+                      <button type="submit" class="btn btn-primary">Next ></button>
+                  </div>
             </div>
-        </form>
+            </form>
       </div>
     </div>
 </body>

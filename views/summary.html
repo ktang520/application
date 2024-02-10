@@ -19,23 +19,19 @@
     <section class="container my-5">
         <div class="row">
             <div class="col-md-6">
-                <p>Name: </p>
-                <p>Email: </p>
-                <p>State: </p>
-                <p>Phone: </p>
-                <p>Github Link: </p>
-                <p>Experience: </p>
-                <p>Willing To Relocate: </p>
+                <p>Name: {{ @SESSION.first }} {{ @SESSION.last }}</p>
+                <p>Email: {{ @SESSION.email }}</p>
+                <p>State: {{ @SESSION.state }}</p>
+                <p>Phone: {{ @SESSION.phone }}</p>
+                <p>Github Link: {{ @SESSION.github }}</p>
+                <p>Experience: {{ @SESSION.years }} years</p>
+                <p>Willing To Relocate: {{ @SESSION.relocate }}</p>
                 <p>Mailing list: {{ @SESSION.jobs }}</p>
             </div>
             <div class="col-md-6">
                 <img src="images/office.jpg" alt="Profile Image" class="img-fluid rounded-3">
                 <h2>Summary</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum ornare condimentum.
-                    Suspendisse interdum at felis in iaculis. Donec sed vehicula leo. Praesent iaculis nisl nec magna
-                    pellentesque, sit amet dapibus purus vestibulum. Aliquam eget molestie nisi. Morbi eu aliquam orci,
-                    ac dictum lacus. Aenean odio mi, euismod vel congue ut, finibus eget nisi. Praesent ullamcorper nec
-                    erat quis pharetra. Etiam ut lectus pretium, pharetra leo et, euismod enim. </p>
+                <p>{{ @SESSION.bio }}</p>
             </div>
             <div class="text-center mt-4">
               <button type="submit" class="btn btn-primary">Submit My Application</button>
