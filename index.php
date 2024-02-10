@@ -41,11 +41,39 @@ $f3->route('GET /experience', function () {
 });
 
 // Define a job openings route
-$f3->route('GET /opening', function () {
+$f3->route('GET|POST /opening', function ($f3) {
+
+    //If the form has been posted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        //Validate the data
+        if (isset($_POST['jobs'])) {
+            $jobs = implode(", ", $_POST['jobs']);
+        }
+        else {
+            $jobs = "None selected";
+        }
+
+        //put the data in the session array
+        $f3->set('SESSION.jobs', $jobs);
+
+        //redirect to order2 route
+        $f3->reroute('summary');
+
+    }
+
 
     // display a view page
     $view = new Template();
     echo $view->render('views/job_openings.html');
+});
+
+// Define a experience route
+$f3->route('GET /summary', function () {
+
+    // display a view page
+    $view = new Template();
+    echo $view->render('views/summary.html');
 });
 
 // Run Fat-Free
