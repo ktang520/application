@@ -32,5 +32,21 @@ $f3->route('GET /info', function () {
     echo $view->render('views/personal_info.html');
 });
 
+// Define a experience route
+$f3->route('GET /experience', function () {
+
+    // display a view page
+    $view = new Template();
+    echo $view->render('views/experience.html');
+});
+
+// Define a job openings route
+$f3->route('GET /opening', function () {
+
+    // display a view page
+    $view = new Template();
+    echo $view->render('views/job_openings.html');
+});
+
 // Run Fat-Free
 $f3->run();

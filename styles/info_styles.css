@@ -1,0 +1,45 @@
+
+h1 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.row {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    display: block;
+}
+.btn-primary {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    margin-top: -53px;
+    padding: .375rem 9.75rem;
+}
+.btn-primary:hover {
+    background-color: #0cf316;
+}
+
+.note {
+    font-size: 1rem;
+    color: #6c757d;
+    padding: 25px 12px 25px 12px;
+    float: right;
+    margin-top: -241px;
+    margin-right: 2px;
+    margin-bottom: 16px;
+    background: #dedfe2;
+}
+
+/*.form-row {*/
+/*    font-size: 1rem;*/
+/*    color: #6c757d;*/
+/*    padding: 25px 12px 25px 12px;*/
+/*    float: right;*/
+/*    margin-top: -241px;*/
+/*    margin-right: 2px;*/
+/*    margin-bottom: 16px;*/
+/*    background: #dedfe2;*/
+/*}*/
