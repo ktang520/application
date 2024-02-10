@@ -97,7 +97,7 @@ $f3->route('GET|POST /opening', function ($f3) {
         //put the data in the session array
         $f3->set('SESSION.jobs', $jobs);
 
-        //redirect to order2 route
+        //redirect to summary route
         $f3->reroute('summary');
 
     }

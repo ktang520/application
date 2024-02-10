@@ -1,4 +1,8 @@
-
+/*
+Kasyn Tang
+February, 2024
+CSS file for Job App Setup
+*/
 h1 {
     border-bottom: 2px solid #ccc;
     padding-bottom: 5px;
@@ -29,14 +33,3 @@ h1 {
     margin: -225px -758px 0px 711px;
     background: #dedfe2;
 }
-
-/*.form-row {*/
-/*    font-size: 1rem;*/
-/*    color: #6c757d;*/
-/*    padding: 25px 12px 25px 12px;*/
-/*    float: right;*/
-/*    margin-top: -241px;*/
-/*    margin-right: 2px;*/
-/*    margin-bottom: 16px;*/
-/*    background: #dedfe2;*/
-/*}*/
