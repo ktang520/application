@@ -51,7 +51,7 @@ $f3->route('GET|POST /info', function ($f3) {
         }
 
         if (validName($_POST['last'])) {
-            $first = $_POST['last'];
+            $last = $_POST['last'];
         }
         else {
             $f3->set('errors["last"]', "Invalid last Name");
@@ -77,7 +77,7 @@ $f3->route('GET|POST /info', function ($f3) {
         if (empty($f3->get('errors'))){
 
             // put data in session array
-            $f3->set('SESSION.food', $first);
+            $f3->set('SESSION.first', $first);
             $f3->set('SESSION.last', $last);
             $f3->set('SESSION.email', $email);
             $f3->set('SESSION.state', $state);
@@ -106,6 +106,14 @@ $f3->route('GET|POST /experience', function ($f3) {
         $years = "";
         $relocate = "";
 
+        // Validate the data
+        if (isset($_POST['years'])){
+            $years = $_POST['years'];;
+        }
+
+        if (isset($_POST['relocate'])){
+            $relocate = $_POST['relocate'];;
+        }
 
         if (validGithub($_POST['github'])) {
             $github = $_POST['github'];
@@ -118,8 +126,7 @@ $f3->route('GET|POST /experience', function ($f3) {
             $f3->set('errors["bio"]', "Invalid Biography");
         }
 
-        $f3->set('years', yearsExperience());
-        $f3->set('relocate', relocate());
+
 
         // no errors
         if (empty($f3->get('errors'))){
@@ -135,6 +142,9 @@ $f3->route('GET|POST /experience', function ($f3) {
         }
 
     }
+
+    $f3->set('years', yearsExperience());
+    $f3->set('relocate', relocate());
 
     // display a view page
     $view = new Template();
