@@ -8,12 +8,18 @@ function validName($first) {
     return true;
 }
 
-function validGithub() {
-
+function validGithub($github) {
+    if (!filter_var($github, FILTER_VALIDATE_URL))
+        return false;
+    return true;
 }
 
-function validExperience() {
-
+function validExperience($bio) {
+    if (($bio) == "")
+        return false;
+    if (!is_string($bio))
+        return false;
+    return true;
 }
 
 function validPhone($phone) {

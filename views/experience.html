@@ -24,7 +24,10 @@ HTML file for Job App Setup
                 <h1 class="col-md-12">Experience</h1>
             <div class="col-md-8">
                 <label for="biography"><b>Biography</b></label>
-                <textarea class="form-control" name="bio" id="biography" rows="9">Lorem ipsum dolor sit amet...</textarea>
+                <textarea class="form-control" name="bio" id="biography" rows="9"></textarea>
+                <check if="{{ isset(@errors['bio']) }}">
+                    <span class="err">{{ @errors['bio'] }}</span>
+                </check>
             </div>
 
             <div class="col-md-4">

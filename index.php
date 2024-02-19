@@ -96,20 +96,37 @@ $f3->route('GET|POST /experience', function ($f3) {
     // If the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        $github = "";
+        $bio = "";
+
         // Validate the data
-        $bio = $_POST['bio'];
-        $github = $_POST['github'];
         $years = $_POST['years'];
         $relocate = $_POST['relocate'];
 
-        // Put the data in the session array
-        $f3->set('SESSION.bio', $bio);
-        $f3->set('SESSION.github', $github);
-        $f3->set('SESSION.years', $years);
-        $f3->set('SESSION.relocate', $relocate);
+        if (validGithub($_POST['github'])) {
+            $github = $_POST['github'];
+        }
 
-        // Redirect to job opening route
-        $f3->reroute('opening');
+        if (validExperience($_POST['bio'])) {
+            $bio = $_POST['bio'];
+        }
+        else {
+            $f3->set('errors["bio"]', "Invalid Biography");
+        }
+
+        // no errors
+        if (empty($f3->get('errors'))){
+
+            // Put the data in the session array
+            $f3->set('SESSION.bio', $bio);
+            $f3->set('SESSION.github', $github);
+            $f3->set('SESSION.years', $years);
+            $f3->set('SESSION.relocate', $relocate);
+
+            // Redirect to job opening route
+            $f3->reroute('opening');
+        }
+
     }
 
     // display a view page
