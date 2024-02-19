@@ -37,3 +37,7 @@ h1 {
 .err {
     color: red;
 }
+
+#job-opening {
+    display: block;
+}

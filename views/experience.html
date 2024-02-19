@@ -36,16 +36,29 @@ HTML file for Job App Setup
 
                     <label><b>Years Experience</b></label>
                     <div>
-                        <label class="radio-inline"><input type="radio" name="years" value="0-2"> 0-2 </label>
-                        <label class="radio-inline"><input type="radio" name="years" value="2-4"> 2-4 </label>
-                        <label class="radio-inline"><input type="radio" name="years" value="4+"> 4+ </label>
+
+                        <repeat group="{{ @years }}" value="{{ @years }}">
+                            <label class="radio-inline">
+                                <input type="radio"
+                                       name="years"
+                                       id="{{ @years }}"
+                                       value="{{ @years }}"
+                                > {{ @years }}
+                            </label>
+                        </repeat>
                     </div>
 
                     <label><b>Willing to Relocate</b></label>
                     <div>
-                        <label class="radio-inline"><input type="radio" name="relocate" value="yes"> Yes </label>
-                        <label class="radio-inline"><input type="radio" name="relocate" value="no"> No </label>
-                        <label class="radio-inline"><input type="radio" name="relocate" value="maybe"> Maybe </label>
+                        <repeat group="{{ @relocate }}" value="{{ @relocate }}">
+                            <label class="radio-inline">
+                                <input type="radio"
+                                       name="relocate"
+                                       id="{{ @relocate }}"
+                                       value="{{ @relocate }}"
+                                > {{ ucwords(@relocate) }}
+                            </label>
+                        </repeat>
                     </div>
                   <div>
                       <button type="submit" class="btn btn-primary">Next ></button>

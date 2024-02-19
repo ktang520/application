@@ -12,7 +12,9 @@ error_reporting(E_ALL);
 
 // Require the autoload file
 require_once ('vendor/autoload.php');
+require_once ('model/data-layer.php');
 require_once ('model/validate.php');
+
 
 
 // Instantiate Fat-Free Framework (F3)
@@ -69,6 +71,8 @@ $f3->route('GET|POST /info', function ($f3) {
             $f3->set('errors["phone"]', "Invalid Phone Number");
         }
 
+
+
         // no errors
         if (empty($f3->get('errors'))){
 
@@ -96,12 +100,12 @@ $f3->route('GET|POST /experience', function ($f3) {
     // If the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        // initialize data
         $github = "";
         $bio = "";
+        $years = "";
+        $relocate = "";
 
-        // Validate the data
-        $years = $_POST['years'];
-        $relocate = $_POST['relocate'];
 
         if (validGithub($_POST['github'])) {
             $github = $_POST['github'];
@@ -113,6 +117,9 @@ $f3->route('GET|POST /experience', function ($f3) {
         else {
             $f3->set('errors["bio"]', "Invalid Biography");
         }
+
+        $f3->set('years', yearsExperience());
+        $f3->set('relocate', relocate());
 
         // no errors
         if (empty($f3->get('errors'))){
@@ -148,13 +155,24 @@ $f3->route('GET|POST /opening', function ($f3) {
             $jobs = "None selected";
         }
 
+        if (isset($_POST['vertical'])) {
+            $vertical = implode(", ", $_POST['vertical']);
+        }
+        else {
+            $vertical = "None selected";
+        }
+
         //put the data in the session array
         $f3->set('SESSION.jobs', $jobs);
+        $f3->set('SESSION.vertical', $vertical);
 
         //redirect to summary route
         $f3->reroute('summary');
 
     }
+
+    $f3->set('jobs', getSoftware());
+    $f3->set('vertical', getVertical());
 
 
     // display a view page
