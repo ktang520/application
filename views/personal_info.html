@@ -25,6 +25,10 @@ HTML file for Job App Setup
                     <div class="form-group col-md-4">
                         <label for="firstName"><b>First Name</b></label>
                         <input type="text" name="first" class="form-control" id="firstName" placeholder="Sarah">
+                        <!-- Display an error if there is one -->
+                        <check if="{{ isset(@errors['first']) }}">
+                            <span class="err">{{ @errors['first'] }}</span>
+                        </check>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="lastName"><b>Last Name</b></label>

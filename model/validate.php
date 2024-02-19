@@ -1,7 +1,11 @@
 <?php
 
-function validName() {
-
+function validName($first) {
+    if (trim($first) == "")
+        return false;
+    if (!ctype_alpha($first))
+        return false;
+    return true;
 }
 
 function validGithub() {

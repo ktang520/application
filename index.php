@@ -12,6 +12,8 @@ error_reporting(E_ALL);
 
 // Require the autoload file
 require_once ('vendor/autoload.php');
+require_once ('model/validate.php');
+
 
 // Instantiate Fat-Free Framework (F3)
 $f3 = Base::instance();
@@ -30,15 +32,35 @@ $f3->route('GET|POST /info', function ($f3) {
     // If the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        //Initializing variables
+        $first = "";
+        $last = "";
+        $email = "";
+        $phone = "";
+
         // Validate the data
-        $first = $_POST['first'];
         $last = $_POST['last'];
         $email = $_POST['email'];
         $state = $_POST['state'];
         $phone = $_POST['phone'];
 
+        if (validName($_POST['first'])) {
+            $first = $_POST['first'];
+        }
+        else {
+            $f3->set('errors["first"]', "Invalid first name");
+        }
+
+        // no errors
+        if (empty($f3->get('errors'))){
+
+            // put data in session array
+            $f3->set('SESSION.food', $first);
+
+            //redirect to experience route
+            $f3->reroute('experience');
+        }
         // Put the data in the session array
-        $f3->set('SESSION.first', $first);
         $f3->set('SESSION.last', $last);
         $f3->set('SESSION.email', $email);
         $f3->set('SESSION.state', $state);
