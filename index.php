@@ -39,16 +39,34 @@ $f3->route('GET|POST /info', function ($f3) {
         $phone = "";
 
         // Validate the data
-        $last = $_POST['last'];
-        $email = $_POST['email'];
         $state = $_POST['state'];
-        $phone = $_POST['phone'];
 
         if (validName($_POST['first'])) {
             $first = $_POST['first'];
         }
         else {
-            $f3->set('errors["first"]', "Invalid first name");
+            $f3->set('errors["first"]', "Invalid First Name");
+        }
+
+        if (validName($_POST['last'])) {
+            $first = $_POST['last'];
+        }
+        else {
+            $f3->set('errors["last"]', "Invalid last Name");
+        }
+
+        if (validEmail($_POST['email'])) {
+            $email = $_POST['email'];
+        }
+        else {
+            $f3->set('errors["email"]', "Invalid Email");
+        }
+
+        if (validPhone($_POST['phone'])) {
+            $phone = $_POST['phone'];
+        }
+        else {
+            $f3->set('errors["phone"]', "Invalid Phone Number");
         }
 
         // no errors
@@ -56,18 +74,15 @@ $f3->route('GET|POST /info', function ($f3) {
 
             // put data in session array
             $f3->set('SESSION.food', $first);
+            $f3->set('SESSION.last', $last);
+            $f3->set('SESSION.email', $email);
+            $f3->set('SESSION.state', $state);
+            $f3->set('SESSION.phone', $phone);
 
             //redirect to experience route
             $f3->reroute('experience');
         }
-        // Put the data in the session array
-        $f3->set('SESSION.last', $last);
-        $f3->set('SESSION.email', $email);
-        $f3->set('SESSION.state', $state);
-        $f3->set('SESSION.phone', $phone);
 
-        // Redirect to experience route
-        $f3->reroute('experience');
     }
 
     // display a view page

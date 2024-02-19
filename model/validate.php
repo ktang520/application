@@ -16,10 +16,18 @@ function validExperience() {
 
 }
 
-function validPhone() {
-
+function validPhone($phone) {
+    if (trim($phone) == "")
+        return false;
+    if (!is_numeric($phone))
+        return false;
+    return true;
 }
 
-function validEmail() {
-
+function validEmail($email) {
+    if (trim($email) == "")
+        return false;
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+        return false;
+    return true;
 }

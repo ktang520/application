@@ -33,3 +33,7 @@ h1 {
     margin: -225px -758px 0px 711px;
     background: #dedfe2;
 }
+
+.err {
+    color: red;
+}
