@@ -110,6 +110,10 @@ $f3->route('GET|POST /experience', function ($f3) {
         if (isset($_POST['years'])){
             $years = $_POST['years'];;
         }
+        else
+        {
+            $f3->set('errors["years"]', "Select a Year");
+        }
 
         if (isset($_POST['relocate'])){
             $relocate = $_POST['relocate'];;
@@ -118,14 +122,6 @@ $f3->route('GET|POST /experience', function ($f3) {
         if (validGithub($_POST['github'])) {
             $github = $_POST['github'];
         }
-
-        if (validExperience($_POST['bio'])) {
-            $bio = $_POST['bio'];
-        }
-        else {
-            $f3->set('errors["bio"]', "Invalid Biography");
-        }
-
 
 
         // no errors
@@ -143,7 +139,7 @@ $f3->route('GET|POST /experience', function ($f3) {
 
     }
 
-    $f3->set('years', yearsExperience());
+    $f3->set('years', validExperience());
     $f3->set('relocate', relocate());
 
     // display a view page

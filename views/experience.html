@@ -25,9 +25,6 @@ HTML file for Job App Setup
             <div class="col-md-8">
                 <label for="biography"><b>Biography</b></label>
                 <textarea class="form-control" name="bio" id="biography" rows="9"></textarea>
-                <check if="{{ isset(@errors['bio']) }}">
-                    <span class="err">{{ @errors['bio'] }}</span>
-                </check>
             </div>
 
             <div class="col-md-4">
@@ -46,7 +43,11 @@ HTML file for Job App Setup
                                 > {{ @years }}
                             </label>
                         </repeat>
+                        <check if="{{ isset(@errors['years']) }}">
+                            <span class="err">{{ @errors['years'] }}</span>
+                        </check>
                     </div>
+
 
                     <label><b>Willing to Relocate</b></label>
                     <div>

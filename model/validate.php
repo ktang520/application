@@ -14,12 +14,8 @@ function validGithub($github) {
     return true;
 }
 
-function validExperience($bio) {
-    if (($bio) == "")
-        return false;
-    if (!is_string($bio))
-        return false;
-    return true;
+function validExperience() {
+    return array('0-2', '2-4', '4+');
 }
 
 function validPhone($phone) {

@@ -1,7 +1,7 @@
 <?php
-function yearsExperience() {
-    return array('0-2', '2-4', '4+');
-}
+//function yearsExperience() {
+//    return array('0-2', '2-4', '4+');
+//}
 
 function relocate() {
     return array('yes', 'no', 'maybe');
